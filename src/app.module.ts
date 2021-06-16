@@ -1,20 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'develop',
-      password: 'aa1010aa',
-      database: 'nest-crud',
-      entities: [
-        __dirname + '/../**/*.entity{.ts,.js}',
-      ],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(),
+    UsersModule,
   ],
   controllers: [],
   providers: [],
